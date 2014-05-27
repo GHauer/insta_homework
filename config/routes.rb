@@ -1,4 +1,39 @@
 Rails.application.routes.draw do
+  # Routes for the Favorite resource:
+  # CREATE
+  get('/favorites/new', { :controller => 'favorites', :action => 'new' })
+  get('/create_favorite', { :controller => 'favorites', :action => 'create' })
+
+  # READ
+  get('/favorites', { :controller => 'favorites', :action => 'index' })
+  get('/favorites/:id', { :controller => 'favorites', :action => 'show' })
+
+  # UPDATE
+  get('/favorites/:id/edit', { :controller => 'favorites', :action => 'edit' })
+  get('/update_favorite/:id', { :controller => 'favorites', :action => 'update' })
+
+  # DELETE
+  get('/delete_favorite/:id', { :controller => 'favorites', :action => 'destroy' })
+  #------------------------------
+
+  # Routes for the Comment resource:
+  # CREATE
+  get('/comments/new', { :controller => 'comments', :action => 'new' })
+  get('/create_comment', { :controller => 'comments', :action => 'create' })
+
+  # READ
+  get('/comments', { :controller => 'comments', :action => 'index' })
+  get('/comments/:id', { :controller => 'comments', :action => 'show' })
+
+  # UPDATE
+  get('/comments/:id/edit', { :controller => 'comments', :action => 'edit' })
+  get('/update_comment/:id', { :controller => 'comments', :action => 'update' })
+
+  # DELETE
+  get('/delete_comment/:id', { :controller => 'comments', :action => 'destroy' })
+  #------------------------------
+
+  devise_for :users
   # Routes for the Photo resource:
   # CREATE
   get('/photos/new', { :controller => 'photos', :action => 'new' })
@@ -70,4 +105,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+root 'photos#index'
+
 end
